@@ -76,6 +76,9 @@ cat <<-EOF > "${TARGET_DIR}${CONFIG_SCRIPT}"
 	/usr/bin/curl --output /home/vagrant/.ssh/authorized_keys --location https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub
 	/usr/bin/chown vagrant:users /home/vagrant/.ssh/authorized_keys
 	/usr/bin/chmod 0600 /home/vagrant/.ssh/authorized_keys
+	
+	# Ansible-specific configuration
+	/usr/bin/pacman -Sy --noconfirm python2
 
 	# clean up
 	/usr/bin/pacman -Rcns --noconfirm gptfdisk
